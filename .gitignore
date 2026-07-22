@@ -1,0 +1,19 @@
+# Local secrets and env
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+.salesforce-oauth.json
+**/salesforce-oauth.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Claude local overrides
+.claude/settings.local.json
+CLAUDE.local.md

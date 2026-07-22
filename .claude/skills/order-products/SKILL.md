@@ -35,9 +35,10 @@ when_to_use: >
 ## Workflow
 1. Clarify period(s), dimensions (BU / account / product / rep), grain (line vs aggregate), and whether hierarchy rollup is required.
 2. **Required:** Open [examples.md](examples.md). Pick the closest template; adapt filters only — do not invent field API names.
-3. Run / retrieve data. If the result set would be huge, prefer aggregate SOQL (or the org’s PHP batch path) over full line export.
-4. **Required before any total:** Open [checklist.md](checklist.md). Walk every check; note pass / fail / N/A.
-5. Answer using the output contract below.
+3. **Required:** Run the SOQL against the production org via the **salesforce-sobject-reads** MCP tools (Hosted `sobject-reads`). If MCP is disconnected or auth failed, stop and tell the user to run `/mcp` — do not invent numbers.
+4. Prefer aggregate queries for large periods/dimensions. Use line-level detail only for audits/samples or when the user asks for lines.
+5. **Required before any total:** Open [checklist.md](checklist.md). Walk every check; note pass / fail / N/A.
+6. Answer using the output contract below.
 
 ## Hierarchy
 - Child lines expose parent via `Account__r.Hierarchy_Parent_Account__c`.
